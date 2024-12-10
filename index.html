@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="containor">
+        <h1>Generate a <br> <span>Random Password</span></h1>
+
+        <div class="display">
+            <input type="text" id="Password" placeholder="Password">
+            <img onclick="copypassword()" src="/images/copy.png" alt="copy">
+        </div>
+        <button onclick="generatePassword()"><img src="/images/generate.png">Generate Password</button>
+    </div>
+
+    <script>
+        const PasswordBox = document.getElementById("Password");
+        const length = 8; // You can change the length here
+        const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const lowerCase = "abcdefghijklmnopqrstuvwxyz"; // Fixed typo
+        const number = "0123456789";
+        const symbol = "@!#$%&+?/";
+
+        const allChars = upperCase + lowerCase + number + symbol;
+
+        function generatePassword() {
+            let password = "";
+
+            // Ensure the password has at least one uppercase, one lowercase, one number, and one symbol
+            password += upperCase[Math.floor(Math.random() * upperCase.length)];
+            password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+            password += number[Math.floor(Math.random() * number.length)];
+            password += symbol[Math.floor(Math.random() * symbol.length)];
+
+            // Fill the rest of the password length with random characters
+            while (password.length < length) {
+                password += allChars[Math.floor(Math.random() * allChars.length)];
+            }
+
+            PasswordBox.value = password; // Display the generated password
+        }
+
+        function copypassword() {
+            if (PasswordBox.value.length > 0) { // Use .value instead of .length
+                navigator.clipboard.writeText(PasswordBox.value) // Modern API for copying
+                    .then(() => {
+                        PasswordBox.select();
+                        document.execCommand("copy");
+                    })
+                    
+            } else {
+                PasswordBox.classList.add('error');
+                setTimeout(() => {
+                    PasswordBox.classList.remove('error');
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+
+</html>

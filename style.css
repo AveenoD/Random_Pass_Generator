@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+    background-color: #002339;
+    color: white;
+}
+.containor{
+    margin: 12%;
+    width: 90%;
+    min-width: 70rem;
+}
+.display{
+    width: 100%;
+    max-width: 60rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    background: white;
+    color: #333;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.6rem 2rem;
+    border-radius: .5rem;
+
+}
+.containor h1{
+    font-weight: 500;
+    font-size: 4.5rem;
+
+}
+.containor h1 span{
+    color: #019f55;
+    border-bottom: .4rem solid #019f55;
+    padding-bottom: .7rem;
+
+}
+.display img{
+    width: 3rem;
+    cursor: pointer;
+    margin-left: 20rem;
+}
+.display input{
+    border: 0;
+    outline: 0;
+    font-size: 2.4rem;
+}
+.containor button img{
+    width: 2.8rem;
+    margin-right: 1rem;
+}
+.containor button{
+    border: 0;
+    outline: 0;
+    background: #019f55;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.6rem 2.6rem;
+    cursor: pointer;
+}
+
+.error{
+    animation: shake 0.1s linear 6;
+}
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+        
+    }
+    25%{
+        transform: translateX(-.2rem);
+        
+    }
+    50%{
+        transform: translateX(0);
+        
+    }
+    75%{
+        transform: translateX(.2rem);
+        
+    }
+    100%{
+        transform: translateX(0);
+        
+    }
+}
+
